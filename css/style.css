@@ -1,0 +1,16 @@
+/**
+* add Custom style here
+*
+*/
+.chart1,.chart2
+{
+    /*display: none ;*/
+    visibility: hidden;
+   
+    
+}
+.show{
+    /*display: block !important;*/
+    visibility: visible;
+    transition: all 0.5s ease-in-out;
+}
