@@ -5,7 +5,7 @@ Highcharts.createElement('link', {
     type: 'text/css'
 }, null, document.getElementsByTagName('head')[0]);
 Highcharts.theme = {
-    colors: ['#002664', '#d7153a', '#0a7cb9', '#84bddc', '#4f4f4f',
+    colors: ['#002664', '#0a7cb9','#84bddc','#d7153a',  , '#4f4f4f',
         '#752f8a', '#69b32d', '#ff7f2f'],
         
     chart: {
@@ -107,12 +107,14 @@ Highcharts.theme = {
              borderWidth:2,
              cursor: 'pointer',
              borderColor:'#000',
+              negativeColor: '#d7153a',
             dataLabels: {
                 color: '#646974'
             },
             nullColor: '#4f4f4f'
         },
         line: {
+             negativeColor: '#d7153a',
             dataLabels: {
                 color: '#CCC'
             },
@@ -121,11 +123,13 @@ Highcharts.theme = {
             }
         },
         spline: {
+             negativeColor: '#d7153a',
             marker: {
                 lineColor: '#646974'
             }
         },
         scatter: {
+             negativeColor: '#d7153a',
             marker: {
                 lineColor: '#646974'
             }

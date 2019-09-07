@@ -1,11 +1,17 @@
 var webURL = 'data/category-success.json';
 var webURL2 = 'data/category-profitloss.json';
+var webURL3 = 'data/category-number.json';
+var webURL4 = 'data/category-hub.json';
 var chart1;
 var successfulBusiness = [];
 var totalBusiness=[];
 var saveData=[];
 var totalData=[];
+var numberData=[];
+var totalNumberData=[];
 var totalProfitLoss=[];
+var hubData=[];
+var totalHubData=[];
 var category;
 
 $(document).ready(function() {
@@ -24,6 +30,7 @@ $(document).ready(function() {
 
     });
     GetTotalType().done(function(data) {
+       
         totalData = data;
 
        
@@ -34,26 +41,55 @@ $(document).ready(function() {
        
 
     });
+    GetNumberType().done(function(data) {
+        numberData = data;
+
+
+       
+         buildNumberData(data, 'All', "chart3");
+       
+        
+        drawChart3();
+       
+
+    });
+    GetHubType().done(function(data) {
+        hubData = data;
+
+
+       
+         buildhubData(data, 'All', "chart4");
+       
+        
+        drawChart4();
+       
+
+    });
+
 
 
         $('#category').on('change', function() {
             
            
-        $('.chart1,.chart2').addClass('show');
+        $('.charts').addClass('show');
         category = $(this).children("option:selected").val();
         if(category ==='All')
         {
-            $('.chart1,.chart2').removeClass('show');
+            $('.charts').removeClass('show');
         }
         
 
              totalBusiness.length =0;
              successfulBusiness.length=0;
              totalProfitLoss.length=0;
+             totalNumberData.length=0;
+             totalHubData.length=0;
         
        
          buildData(saveData, category, "chart1");
           buildProfitData(totalData, category, "chart2");
+            buildNumberData(numberData, category, "chart3");
+             buildhubData(hubData, category, "chart4");
 
         updateCharts();
         // callGraph();
@@ -62,14 +98,14 @@ $(document).ready(function() {
     });
 });
 function drawChart1() {
-
+ 
 
     chart1 = Highcharts.chart('container', {
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Total number of successful businesses for an industry',
+            text: 'Total number of successful businesses for this industry which has received assistance',
             align: 'center'
         },
         subtitle: {
@@ -128,11 +164,11 @@ function drawChart1() {
 
     chart2 = Highcharts.chart('container2', {
         chart: {
-            type: 'spline'
+            type: 'areaspline'
         },
         
         title: {
-            text: 'Total profit loss for an industry',
+            text: 'Total Profit/loss for last 7 years in this Sector',
             align: 'center'
         },
         subtitle: {
@@ -197,10 +233,106 @@ function drawChart1() {
         },
     });
 }
+  function drawChart3() {
+
+    chart3 = Highcharts.chart('container3', {
+        chart: {
+            type: 'pie'
+        },
+        
+        title: {
+            text: 'Total number of Businesses in this sector',
+            align: 'center'
+        },
+        subtitle: {
+            text: 'Data source from ATO',
+            align: 'center'
+        },
+        xAxis: {
+            type: 'category',
+            crosshair: true
+        },
+        yAxis: [{
+            
+             
+                title: {
+                    text: 'Total businesses'
+                },
+            },
+            
+
+        ],
+
+       
+        
+
+     series: [{
+
+
+            name: 'Total number of businesses in this sector',
+            data: totalNumberData
+
+        },
+        
+        
+        ],
+       
+    });
+}
+function drawChart4() {
+    
+    console.log(totalHubData);
+
+    chart4 = Highcharts.chart('container4', {
+        chart: {
+            type: 'column'
+        },
+        
+        title: {
+            text: 'Innovation hubs',
+            align: 'center'
+        },
+        subtitle: {
+            text: 'Data source from Innovation precincts',
+            align: 'center'
+        },
+        xAxis: {
+            type: 'category',
+            crosshair: true
+        },
+        yAxis: [{
+            
+             
+                title: {
+                    text: 'Total businesses'
+                },
+            },
+            
+
+        ],
+
+       
+        
+
+     series: [{
+
+
+            name: 'Total number of businesses in this sector',
+            data: totalHubData
+
+        },
+        
+        
+        ],
+       
+    });
+}
 function updateCharts() {
     chart1.series[0].setData(totalBusiness);
     chart1.series[1].setData(successfulBusiness);
-     chart2.series[0].setData(totalProfitLoss);
+    chart2.series[0].setData(totalProfitLoss);
+    chart3.series[0].setData(totalNumberData);
+     chart4.series[0].setData(totalHubData);
     
     // chart1.redraw();
 }
@@ -217,14 +349,12 @@ function chartType(item, chart) {
 
             break;
         case "chart3":
-            if(item.attributes.AVERAGE_DETERMINATION_TIME===null ?  avgDetermination.push([category, 0]):+
-            avgDetermination.push([category, item.attributes.AVERAGE_DETERMINATION_TIME]));
+            totalNumberData.push([item.Type, convertInt(item.Total_number_of_companies)]);
             break;
         case "chart4":
-            cnrSubmitted.push([category, item.attributes.SUBMITTED_COUNT]);
-            cnrLodged.push([category, item.attributes.LODGEMENT_COUNT]);
-            cnrDetermined.push([category, item.attributes.DETERMINATION_COUNT]);
-            break;    
+             totalHubData.push([item.State, item.Latitude]);
+            break;
+               
     }
 }
 function buildData(data, category, chart) {
@@ -264,6 +394,9 @@ function buildProfitData(data, category, chart) {
                  case "2012-13":
                     chartType(item, chart);
                     break;
+                case "2013-14":
+                    chartType(item, chart);
+                    break;    
                  case "2014-15":
                     chartType(item, chart);
                     break;
@@ -275,6 +408,77 @@ function buildProfitData(data, category, chart) {
                 case "2016-17":
                     chartType(item, chart);
                     break;
+
+               
+
+               
+            }
+        }
+    });
+}
+function buildNumberData(data, category, chart) {
+
+
+    $.each(data, function(index, item) {
+        
+     
+
+        if (item.Enterprise_industry === category ) {
+
+            switch (item.Type) {
+                 case "Medium to Very large":
+                    chartType(item, chart);
+                    break;
+                case "Small":
+                    chartType(item, chart);
+                    break;    
+                 case "Micro":
+                    chartType(item, chart);
+                    break;
+               
+
+               
+
+               
+            }
+        }
+    });
+}
+function buildhubData(data, category, chart) {
+
+
+    $.each(data, function(index, item) {
+        
+     
+
+        if (item.Enterprise_industry === category ) {
+
+            switch (item.State) {
+                 case "ACT":
+                    chartType(item, chart);
+                    break;
+                case "NSW":
+                    chartType(item, chart);
+                    break;    
+                 case "VIC":
+                    chartType(item, chart);
+                    break;
+                     case "NT":
+                    chartType(item, chart);
+                    break;
+                     case "QLD":
+                    chartType(item, chart);
+                    break;
+                    case "SA":
+                    chartType(item, chart);
+                    break;
+                    case "TAS":
+                    chartType(item, chart);
+                    break;
+                    case "WA":
+                    chartType(item, chart);
+                    break;
+               
 
                
 
@@ -304,6 +508,30 @@ function GetTotalType() {
     var deffer = $.Deferred();
     
     $.getJSON(webURL2, function(data) {
+        
+     deffer.resolve(data);
+});
+
+    
+    return deffer.promise();
+}
+function GetNumberType() {
+
+    var deffer = $.Deferred();
+    
+    $.getJSON(webURL3, function(data) {
+        
+     deffer.resolve(data);
+});
+
+    
+    return deffer.promise();
+}
+function GetHubType() {
+
+    var deffer = $.Deferred();
+    
+    $.getJSON(webURL4, function(data) {
         
      deffer.resolve(data);
 });
