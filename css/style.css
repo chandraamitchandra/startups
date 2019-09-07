@@ -18,3 +18,12 @@
 body,.gm-style {
     font-family: 'Montserrat', sans-serif;
 }
+
+.danger
+{
+    background-color:#d7153a;
+}
+.good
+{
+    background-color:#0a7cb9;
+}

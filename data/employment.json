@@ -1,0 +1,192 @@
+[
+  {
+    "Enterprise_industry": "Agriculture, Forestry, Fishing",
+    "Employed_Male": 233900,
+    "Employed_Female": 99600,
+    "last_five_year": 11100,
+    "May14": 321800,
+    "May18": 323900,
+    "May19": 332900,
+    "projected": -0.4
+  },
+  {
+    "Enterprise_industry": "Mining",
+    "Employed_Male": 203000,
+    "Employed_Female": 40000,
+    "last_five_year": -9200,
+    "May14": 256600,
+    "May18": 239100,
+    "May19": 247400,
+    "projected": 2.4
+  },
+  {
+    "Enterprise_industry": "Manufacturing",
+    "Employed_Male": 654300,
+    "Employed_Female": 232900,
+    "last_five_year": -71000,
+    "May14": 919700,
+    "May18": 950100,
+    "May19": 848700,
+    "projected": 0.9
+  },
+  {
+    "Enterprise_industry": "Electricity, Gas, Water and Waste Services",
+    "Employed_Male": 114800,
+    "Employed_Female": 40700,
+    "last_five_year": 11100,
+    "May14": 143400,
+    "May18": 147500,
+    "May19": 154500,
+    "projected": 4.1
+  },
+  {
+    "Enterprise_industry": "Construction",
+    "Employed_Male": 1029200,
+    "Employed_Female": 134900,
+    "last_five_year": 148900,
+    "May14": 1020300,
+    "May18": 1184600,
+    "May19": 1169200,
+    "projected": 10
+  },
+  {
+    "Enterprise_industry": "Wholesale Trade",
+    "Employed_Male": 270300,
+    "Employed_Female": 133200,
+    "last_five_year": 13400,
+    "May14": 388300,
+    "May18": 366100,
+    "May19": 401700,
+    "projected": -2.7
+  },
+  {
+    "Enterprise_industry": "Retail Trade",
+    "Employed_Male": 575800,
+    "Employed_Female": 719400,
+    "last_five_year": 57300,
+    "May14": 1240600,
+    "May18": 1284600,
+    "May19": 1297900,
+    "projected": 3.7
+  },
+  {
+    "Enterprise_industry": "Accommodation and Food Services",
+    "Employed_Male": 422400,
+    "Employed_Female": 490600,
+    "last_five_year": 138200,
+    "May14": 779700,
+    "May18": 884900,
+    "May19": 917900,
+    "projected": 9.1
+  },
+  {
+    "Enterprise_industry": "Transport, Postal and Warehousing",
+    "Employed_Male": 517100,
+    "Employed_Female": 146600,
+    "last_five_year": 71100,
+    "May14": 588300,
+    "May18": 636700,
+    "May19": 659400,
+    "projected": 4.3
+  },
+  {
+    "Enterprise_industry": "Information Media and Telecommunications",
+    "Employed_Male": 122300,
+    "Employed_Female": 85000,
+    "last_five_year": 4700,
+    "May14": 200000,
+    "May18": 225500,
+    "May19": 204700,
+    "projected": 4.7
+  },
+  {
+    "Enterprise_industry": "Financial and Insurance Services",
+    "Employed_Male": 217900,
+    "Employed_Female": 221000,
+    "last_five_year": 32000,
+    "May14": 406800,
+    "May18": 444000,
+    "May19": 438800,
+    "projected": 3.2
+  },
+  {
+    "Enterprise_industry": "Rental, Hiring and Real Estate Services",
+    "Employed_Male": 104200,
+    "Employed_Female": 109300,
+    "last_five_year": -7300,
+    "May14": 221900,
+    "May18": 220000,
+    "May19": 214600,
+    "projected": 5.9
+  },
+  {
+    "Enterprise_industry": "Professional, Scientific, Technical Services",
+    "Employed_Male": 654700,
+    "Employed_Female": 471600,
+    "last_five_year": 215700,
+    "May14": 926100,
+    "May18": 1049700,
+    "May19": 1141800,
+    "projected": 10.2
+  },
+  {
+    "Enterprise_industry": "Administrative and Support Services",
+    "Employed_Male": 208400,
+    "Employed_Female": 239400,
+    "last_five_year": 62100,
+    "May14": 390800,
+    "May18": 409500,
+    "May19": 452900,
+    "projected": 6.6
+  },
+  {
+    "Enterprise_industry": "Public Administration and Safety",
+    "Employed_Male": 408100,
+    "Employed_Female": 430000,
+    "last_five_year": 110300,
+    "May14": 734700,
+    "May18": 785400,
+    "May19": 845000,
+    "projected": 5
+  },
+  {
+    "Enterprise_industry": "Education and Training",
+    "Employed_Male": 301900,
+    "Employed_Female": 749400,
+    "last_five_year": 152900,
+    "May14": 904800,
+    "May18": 1010900,
+    "May19": 1057700,
+    "projected": 11.2
+  },
+  {
+    "Enterprise_industry": "Health Care and Social Assistance",
+    "Employed_Male": 366700,
+    "Employed_Female": 1320300,
+    "last_five_year": 304300,
+    "May14": 1384700,
+    "May18": 1673600,
+    "May19": 1689000,
+    "projected": 14.9
+  },
+  {
+    "Enterprise_industry": "Arts and Recreation Services",
+    "Employed_Male": 130000,
+    "Employed_Female": 123500,
+    "last_five_year": 54000,
+    "May14": 203200,
+    "May18": 249100,
+    "May19": 257200,
+    "projected": 8.7
+  },
+  {
+    "Enterprise_industry": "Other",
+    "Employed_Male": 278400,
+    "Employed_Female": 240000,
+    "last_five_year": 32000,
+    "May14": 489100,
+    "May18": 474800,
+    "May19": 521100,
+    "projected": 1.4
+  }
+]

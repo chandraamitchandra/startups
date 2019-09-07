@@ -6,36 +6,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-      <script src="//code.highcharts.com/maps/modules/map.js"></script>
-      
-    <script src="https://code.highcharts.com/mapdata/countries/au/au-all.js"></script>
-
+     
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
     
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div class="container">  
 
-<!--<div class="row my-5">-->
-  
-<!--    <div class="col-md-6">-->
-<!--        <div class="card">-->
-<!--        <div class="card-header text-center text-white" style="background-color:#002664;"><h3> Total Applications lodged</h3></div>-->
-<!--        <div class="card-body text-center text-white" style="background-color:#d7153a;">-->
-          
-<!--<h1 id="totalApps"></h1></div>-->
-<!--         <div class="card-footer text-muted text-center"><small>Total number of applications submitted through NSW Planning Portal</small></div>-->
-<!--        </div>-->
-<!--        </div>-->
-<!--        <div class="col-md-6 ">   -->
-<!--        <div class="card">-->
-<!--         <div class="card-header text-center text-white" style="background-color:#002664;"> <h3> Total CNR's lodged</h3></div>-->
-<!--         <div class="card-body text-cecard-body text-center text-white" style="background-color:#d7153a;"> <h1 id="totalCnr"></h1></div>-->
-<!--         <div class="card-footer text-muted text-center"><small>Concurrence and Referrals submitted through NSW Planning Portal</small></div>-->
-<!--        </div>-->
-<!--        </div>-->
-        
 
-
-<!--</div>  -->
 
     <div class="input-group my-5 jumbotron">
 <h2 class="col-md-6 disabled"> Select a business category for your startup</h2>
@@ -63,14 +40,54 @@
 
 
 <div class="charts">
-<div class="row"><div class=" col-md-6" id="container2"></div>
+    <div class="row my-5">
+  
+    <div class="col-md-6">
+        <div class="card">
+        <div class="card-header text-center text-white" style="background-color:#002664;"><h3> Total growth in this sector in last 5 years</h3></div>
+        <div class="card-body text-center text-white " >
+          
+<h1 id="totalApps"></h1></div>
+         <div class="card-footer text-muted text-center"><small>Based on LMIP's last five years' employment data</small></div>
+        </div>
+        </div>
+        <div class="col-md-6 ">   
+        <div class="card">
+         <div class="card-header text-center text-white" style="background-color:#002664;"> <h3> Projected growth % in this sector in next 5 years </h3></div>
+         <div class="card-body text-cecard-body text-center text-white" > <h1 id="totalCnr"></h1></div>
+         <div class="card-footer text-muted text-center"><small>Based on predictive analysis of employment data for next 5 year</small></div>
+        </div>
+        </div>
+        
+
+
+</div>  
+    <div class="row " id="container5"></div>
+<div class="row">
+    <div class="col-md-6 " id="container6"></div>
 <div class="col-md-6  " id="container3"></div>
 </div>
+<div class="row" id="container2"></div>
 <h2 class='jumbotron'> Businesses that have received assistance from NMEI in this Sector</h2>
 <div class="row " id="container"></div>
 <div class="row " id="container4"></div>
 <h2 class='jumbotron'> Innovation Precints</h2>
  <div id="map" class="row " style="width:100%;height:30em;"></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  </div>
 
 <!--    <div class="input-group my-5 jumbotron">-->

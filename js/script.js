@@ -2,6 +2,8 @@ var webURL = 'data/category-success.json';
 var webURL2 = 'data/category-profitloss.json';
 var webURL3 = 'data/category-number.json';
 var webURL4 = 'data/category-hub.json';
+var webURL5 = 'data/employment.json';
+
 var chart1;
 var successfulBusiness = [];
 var totalBusiness=[];
@@ -12,6 +14,9 @@ var totalNumberData=[];
 var totalProfitLoss=[];
 var hubData=[];
 var totalHubData=[];
+var totalEmploymentData=[];
+var employmentData=[];
+var totalGenderdata=[];
 var category;
 
  
@@ -60,12 +65,28 @@ $(document).ready(function() {
 
 
        
-         buildhubData(data, 'Professional, Scientific, Technical Services', "chart4");
+        // buildhubData(data, 'All', "chart4");
         
        
         
        // drawChart4();
-       showMap(totalHubData);
+      // showMap(totalHubData);
+       
+
+    });
+    GetEmploymentType().done(function(data) {
+        employmentData = data;
+
+    
+       
+         buildemploymentData(data, 'All', "chart5");
+         buildgenderData(data, 'All', "chart6");
+        
+       
+        
+       drawChart5();
+       drawChart6()
+      // showMap(totalHubData);
        
 
     });
@@ -88,14 +109,18 @@ $(document).ready(function() {
              totalProfitLoss.length=0;
              totalNumberData.length=0;
              totalHubData.length=0;
+             totalEmploymentData.length=0;
+             totalGenderdata.length=0;
         
        
          buildData(saveData, category, "chart1");
           buildProfitData(totalData, category, "chart2");
             buildNumberData(numberData, category, "chart3");
              buildhubData(hubData, category, "chart4");
-             
-             showMap(totalHubData);
+              buildemploymentData(employmentData, category, "chart5");
+              buildgenderData(employmentData, category, "chart6");
+             totalsInfographic(category);
+             //showMap(totalHubData);
 
         updateCharts();
         // callGraph();
@@ -285,50 +310,125 @@ function drawChart1() {
        
     });
 }
-function drawChart4() {
+ function drawChart5() {
+     
     
-    
-   chart4 = Highcharts.mapChart('container4', {
-    chart: {
-        map: 'countries/au/au-all'
-    },
+    chart5 = Highcharts.chart('container5', {
+        chart: {
+            type: 'spline'
+        },
+        
+        title: {
+            text: 'Total employment in this sector in last few years',
+            align: 'center'
+        },
+        subtitle: {
+            text: 'Data source from LMIP',
+            align: 'center'
+        },
+        xAxis: {
+            type: 'category',
+            categories: ['2014', '2018', '2019'],
+            crosshair: true
+        },
+        yAxis: [{
+            
+             
+                title: {
+                    text: 'Total employed'
+                },
+            },
+            
 
-    title: {
-        text: 'Highmaps basic demo'
-    },
+        ],
 
-    subtitle: {
-        text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/au/au-all.js">Australia</a>'
-    },
+       
+        
 
-    mapNavigation: {
-        enabled: true,
-        buttonOptions: {
-            verticalAlign: 'bottom'
-        }
-    },
+     series: [{
 
-    colorAxis: {
-        min: 0
-    },
 
-    series: [{
-        data: totalHubData,
-        name: 'Random data',
-        states: {
-            hover: {
-                color: '#BADA55'
+            name: 'Total number of people employed in this sector',
+            data: totalEmploymentData
+
+        },
+        
+        
+        ],
+       
+    });
+}
+function drawChart6() {
+     
+   
+
+    chart6 = Highcharts.chart('container6', {
+        // chart: {
+        //     type: 'column'
+        // },
+        
+        title: {
+            text: 'Total persons employed based on gender',
+            align: 'center'
+        },
+        
+        subtitle: {
+            text: 'Data source from LMIP',
+            align: 'center'
+        },
+        tooltip: {
+            formatter: function() {
+
+                return ('Total number of ' + this.x + ' in this sector are '+ this.y);
             }
         },
-        dataLabels: {
-            enabled: true,
-            format: '{point.name}'
-        }
-    }]
-});
+        plotOptions: {
+            column: {
+                allowPointSelect: true,
+                pointPadding: 0.3,
 
-    
+                dataLabels: {
+                    enabled: true,
+                    
+                },
+                showInLegend: true
+            }
+        },
+        xAxis: {
+          
+            categories: ['Male', 'Female'],
+            crosshair: true
+        },
+        
+        yAxis: [{
+            
+             
+                title: {
+                    text: 'Total employed'
+                },
+            },
+            
+
+        ],
+
+       
+        
+
+     series: [
+         {
+
+ type: 'column',
+            name: 'Total number of people employed in this sector',
+            data: totalGenderdata
+
+         }
+        
+        ],
+       
+    });
 }
+
+
 
 function showMap(data)
 {
@@ -383,7 +483,9 @@ function updateCharts() {
     chart1.series[1].setData(successfulBusiness);
     chart2.series[0].setData(totalProfitLoss);
     chart3.series[0].setData(totalNumberData);
-     chart4.series[0].setData(totalHubData);
+     //chart4.series[0].setData(totalHubData);
+     chart5.series[0].setData(totalEmploymentData);
+     chart6.series[0].setData(totalGenderdata);
     
     // chart1.redraw();
 }
@@ -392,8 +494,7 @@ function chartType(item, chart) {
         case "chart1":
             totalBusiness.push([item.METRO, item.FREQ]);
             successfulBusiness.push([item.METRO, item.success]);
-           
-           
+              
             break;
         case "chart2":
             totalProfitLoss.push([item.year, convertInt(item.Total)]);
@@ -405,6 +506,12 @@ function chartType(item, chart) {
         case "chart4":
              totalHubData.push({"name":item.State, "lat":item.Latitude,"lng":item.Longitude,"Precinct":item.Precinct,"Partners":item.Partners});
             break;
+        case "chart5":
+            totalEmploymentData.push([item]);
+            break;
+        case "chart6":
+            totalGenderdata.push([item]);
+            break;    
                
     }
 }
@@ -430,6 +537,75 @@ function buildData(data, category, chart) {
                
             }
         }
+    });
+}
+function buildemploymentData(data, category, chart) {
+
+
+    $.each(data, function(index, item) {
+        
+        Object.keys(item).forEach(function(key) {
+   
+        
+      // console.log(item);
+
+        if (item.Enterprise_industry === category ) {
+            
+         
+
+            switch (key) {
+                 case "May19":
+                    chartType(item.May19, chart);
+                    break;
+                    
+                case "May18":
+                    chartType(item.May18, chart);
+                    break;
+
+                case "May14":
+                   
+                    chartType(item.May14, chart);
+                    break;
+
+                   
+
+               
+            }
+        }
+        });
+    });
+}
+function buildgenderData(data, category, chart) {
+
+
+    $.each(data, function(index, item) {
+        
+        Object.keys(item).forEach(function(key) {
+   
+        
+      
+
+        if (item.Enterprise_industry === category ) {
+            
+         
+
+            switch (key) {
+                 case "Employed_Male":
+                    chartType(item.Employed_Male, chart);
+                    break;
+                    
+                case "Employed_Female":
+                    chartType(item.Employed_Female, chart);
+                    break;
+
+              
+
+                   
+
+               
+            }
+        }
+        });
     });
 }
 function buildProfitData(data, category, chart) {
@@ -592,6 +768,18 @@ function GetHubType() {
     
     return deffer.promise();
 }
+function GetEmploymentType() {
+
+    var deffer = $.Deferred();
+    
+    $.getJSON(webURL5, function(data) {
+        
+     deffer.resolve(data);
+});
+
+    
+    return deffer.promise();
+}
 function numberConvert(num) {
     
      let parse= parseInt(num);
@@ -613,4 +801,56 @@ function numberConvert(num) {
 }
 function convertInt(cost) {
     return parseInt(cost);
+}
+function totalsInfographic(category)
+{
+    $.each(employmentData,function(index,item){
+        
+       if(item.Enterprise_industry ===category)
+    {
+      var $this = $("#totalApps");
+       $this.html(item.last_five_year);
+       $this.parent().removeClass('danger');
+       $this.parent().removeClass('good');
+       if(item.last_five_year<0 ? $this.parent().addClass('danger') : $this.parent().addClass('good'));
+       animate($this,1);
+    }
+    });
+    $.each(employmentData,function(index,item){
+        
+      if(item.Enterprise_industry ===category)
+    {
+        var $this = $('#totalCnr');
+      $this.html(item.projected);
+      $this.parent().removeClass('danger');
+       $this.parent().removeClass('good');
+        if(item.projected<0 ? $this.parent().addClass('danger') : $this.parent().addClass('good'));
+      animate($this,0);
+    }
+    });
+   
+   
+
+}
+
+function animate(ref,int)
+{
+      
+  var $this = $(ref);
+  $({ Counter: 0 }).animate({ Counter: $this.text() }, {
+    duration: 1500,
+    easing: 'swing',
+    step: function () {
+        if(int==1)
+        {
+      $this.text(Math.ceil(this.Counter));
+        }
+        else
+        {
+              $this.text((this.Counter).toFixed(2));
+        }
+        
+    }
+  });
+
 }
