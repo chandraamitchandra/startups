@@ -2,11 +2,14 @@
 <html>
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-   
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+      <script src="//code.highcharts.com/maps/modules/map.js"></script>
+      
+    <script src="https://code.highcharts.com/mapdata/countries/au/au-all.js"></script>
+
     
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div class="container">  
@@ -65,7 +68,10 @@
 </div>
 <h2 class='jumbotron'> Businesses that have received assistance from NMEI in this Sector</h2>
 <div class="row " id="container"></div>
-<div class="row " id="container4"></div></div>
+<div class="row " id="container4"></div>
+<h2 class='jumbotron'> Innovation Precints</h2>
+ <div id="map" class="row " style="width:100%;height:30em;"></div>
+ </div>
 
 <!--    <div class="input-group my-5 jumbotron">-->
 <!--<h2 class="col-md-6"> Select a council for CNR applications</h2>-->
@@ -156,6 +162,7 @@
 
 <script type="text/javascript" src="js/script.js"></script>
 <script    type="text/javascript" src="js/theme.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY3RNuFX1DU6iMTPeQMbpC9Xx2wA74pgs" async defer></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />

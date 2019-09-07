@@ -14,6 +14,8 @@ var hubData=[];
 var totalHubData=[];
 var category;
 
+ 
+
 $(document).ready(function() {
 
     //initialise data
@@ -58,10 +60,12 @@ $(document).ready(function() {
 
 
        
-         buildhubData(data, 'All', "chart4");
+         buildhubData(data, 'Professional, Scientific, Technical Services', "chart4");
+        
        
         
-        drawChart4();
+       // drawChart4();
+       showMap(totalHubData);
        
 
     });
@@ -90,6 +94,8 @@ $(document).ready(function() {
           buildProfitData(totalData, category, "chart2");
             buildNumberData(numberData, category, "chart3");
              buildhubData(hubData, category, "chart4");
+             
+             showMap(totalHubData);
 
         updateCharts();
         // callGraph();
@@ -281,51 +287,96 @@ function drawChart1() {
 }
 function drawChart4() {
     
-    console.log(totalHubData);
+    
+   chart4 = Highcharts.mapChart('container4', {
+    chart: {
+        map: 'countries/au/au-all'
+    },
 
-    chart4 = Highcharts.chart('container4', {
-        chart: {
-            type: 'column'
+    title: {
+        text: 'Highmaps basic demo'
+    },
+
+    subtitle: {
+        text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/au/au-all.js">Australia</a>'
+    },
+
+    mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+    },
+
+    colorAxis: {
+        min: 0
+    },
+
+    series: [{
+        data: totalHubData,
+        name: 'Random data',
+        states: {
+            hover: {
+                color: '#BADA55'
+            }
         },
+        dataLabels: {
+            enabled: true,
+            format: '{point.name}'
+        }
+    }]
+});
+
+    
+}
+
+function showMap(data)
+{
+    
+ 
+var content;
+  
+    
+    var mapOptions = {
+center: new google.maps.LatLng(-23.6980, 133.8807),
+zoom: 4,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+    
+     
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        // Get the Json file data
         
-        title: {
-            text: 'Innovation hubs',
-            align: 'center'
-        },
-        subtitle: {
-            text: 'Data source from Innovation precincts',
-            align: 'center'
-        },
-        xAxis: {
-            type: 'category',
-            crosshair: true
-        },
-        yAxis: [{
-            
+       
+        
+          // Loop through the data
+         $.each( data, function(i, value) {
              
-                title: {
-                    text: 'Total businesses'
-                },
-            },
             
+            
+           content = '<div class="card"> <div class="card-header" style="background-color:#002664; color:white;"><h3>'+value.name+
+           '<h3></div><div class="card-body" style="background-color:#0a7cb9;color:white;"><p style="text-transform:uppercase;">precinct: '+value.Precinct+
+           '</p> '+ value.Partners+'</div></div>';
+           
+            
+     var infowindow = new google.maps.InfoWindow({
+    content: content
+  });
 
-        ],
+                var myLatlng = new google.maps.LatLng(value.lat, value.lng);
+                        
+                
+                var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                 icon: 'images/pin48.png',
+               
+                });
+                 marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 
-       
-        
-
-     series: [{
-
-
-            name: 'Total number of businesses in this sector',
-            data: totalHubData
-
-        },
-        
-        
-        ],
-       
-    });
+            });
 }
 function updateCharts() {
     chart1.series[0].setData(totalBusiness);
@@ -352,7 +403,7 @@ function chartType(item, chart) {
             totalNumberData.push([item.Type, convertInt(item.Total_number_of_companies)]);
             break;
         case "chart4":
-             totalHubData.push([item.State, item.Latitude]);
+             totalHubData.push({"name":item.State, "lat":item.Latitude,"lng":item.Longitude,"Precinct":item.Precinct,"Partners":item.Partners});
             break;
                
     }
@@ -449,9 +500,11 @@ function buildhubData(data, category, chart) {
 
     $.each(data, function(index, item) {
         
-     
+      
 
         if (item.Enterprise_industry === category ) {
+            
+           
 
             switch (item.State) {
                  case "ACT":
