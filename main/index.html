@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Incub8</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+      <link rel="stylesheet" href="css/style.css" type="text/css" />
+     
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+  <!-- Theme CSS -->
+  <link href="css/freelancer.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase " id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Incub8</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Start your journey</a>
+          </li>
+          <!--<li class="nav-item mx-0 mx-lg-1">-->
+          <!--  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Apply for NEIS fund</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item mx-0 mx-lg-1">-->
+          <!--  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Team</a>-->
+          <!--</li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">Incub8</h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0">Helping small businesses make the right decisions</p>
+
+
+    </div>
+  </header>
+
+  <!-- Portfolio Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Start your journey</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+          <div class="input-group my-5 jumbotron sticky-top bg-primary " style="border: 1px solid #fff;">
+<h3 class="col-md-6  text-center text-uppercase text-white " > Select a business category for your startup</h3>
+  <select class="col-md-6 custom-select" id="category">
+    <option value="All">All</option>
+    <option value="Agriculture, Forestry, Fishing" >Agriculture, Forestry, Fishing</option>
+    <option value="Accommodation and Food Services">Accommodation and Food Services</option>
+<option value="Arts and Recreation Services">Arts and Recreation Services</option>
+<option value="Construction">Construction</option>
+<option value="Education and Training">Education and Training</option>
+<option value="Financial and Insurance Services">Financial and Insurance Services</option>
+<option value="Health Care and Social Assistance">Health Care and Social Assistance</option>
+<option value="Information Media and Telecommunications">Information Media and Telecommunications</option>
+<option value="Manufacturing">Manufacturing</option>
+<option value="Professional, Scientific, Technical Services">Professional, Scientific, Technical Services</option>
+<option value="Rental, Hiring and Real Estate Services">Rental, Hiring and Real Estate Services</option>
+<option value="Retail Trade">Retail Trade</option>
+<option value="Transport, Postal and Warehousing">Transport, Postal and Warehousing</option>
+<option value="Wholesale Trade">Wholesale Trade</option>
+<option value="Other">Other</option>
+
+    
+  </select>
+</div>
+
+
+
+
+
+
+
+<div class="charts">
+    <div class="row my-5">
+  
+    <div class="col-md-6">
+        <div class="card">
+        <div class="card-header text-center text-white" style="background-color:#2c3e50;"><h5 class="text-uppercase my-3"> Total growth in this sector in last 5 years</h5></div>
+        <div class="card-body text-center text-white " >
+          
+<h1 id="totalApps"></h1></div>
+         <div class="card-footer text-muted text-center"><p>Based on LMIP's last five years' employment data</p></div>
+        </div>
+        </div>
+        <div class="col-md-6 ">   
+        <div class="card">
+         <div class="card-header text-center text-white" style="background-color:#2c3e50;"> <h5 class="text-uppercase my-3"> Projected growth % in this sector in next 5 years </h5></div>
+         <div class="card-body text-cecard-body text-center text-white" > <h1 id="totalCnr"></h1></div>
+         <div class="card-footer text-muted text-center"><p>Based on predictive analysis of employment data for next 5 year</p></div>
+        </div>
+        </div>
+        
+
+
+</div>  
+ <h2 class=" text-center text-uppercase text-secondary mb-0">Total people employed in this sector</h2>
+   <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-user-md"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+  <div class="row my-5">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">Often a primary indicator of the health of an industry is total number of people employed on a sector. Although it can go up and down but the variation is consistent , it is often termed as an stable industry</p>
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="lead">Department of Employment, Skills, Small and Family Business supports economic growth, by delivering policies and programs that assist job seekers to find work, encourage small and family businesses to grow, and maximise opportunity through access to quality skills and training</p>
+        </div>
+       
+      </div>
+        <div class="row my-5 " id="container5"></div>
+<h2 class=" text-center text-uppercase text-secondary my-3">Businesses operating in this sector</h2>
+<div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-business-time"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+  <div class="row my-5">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">A high number of businesses in a sector is a good indicator, which means that there is a demand and supply for that business</p>
+        </div>
+        <div class="col-lg-4 mr-auto ">
+          <img src="https://business.pinterest.com/sites/default/files/blog_head/2018-11/blog%20header%20%286%29.jpg" alt="" class="img-fluid">
+        </div>
+       
+      </div>
+       <div class="row my-5" id="container3">
+          
+     
+        </div>
+
+<h2 class=" text-center text-uppercase text-secondary my-3">Gender representation in this sector</h2>
+<div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-female"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+  <div class="row my-5">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">
+            Gender representation is an important aspect in businesses and often many businesses fail to achieve that.
+          The balance is critical to achieve : </p>
+    <ul class="list-group">
+
+<li class="list-group-item">Improved national productivity and economic growth</li>
+<li class="list-group-item" >Future proofing the Australian economy</li>
+<li class="list-group-item">Increased organisational performance</li>
+<li class="list-group-item">Enhanced ability of companies to attract talent and retain employees</li>
+<li class="list-group-item">Enhanced organisational reputation</li>
+
+</ul>
+
+        </div>
+        <div class="col-lg-4 mr-auto ">
+          <img src="http://celebrateaustralianow.com/wp-content/uploads/2019/07/JULY31.jpg" alt="" class="img-fluid">
+        </div>
+       
+      </div>
+
+
+
+   
+<div class="row my-5" id="container6">
+    
+</div>
+
+
+<h2 class=" text-center text-uppercase text-secondary my-3">Health of this sector over last few years</h2>
+<div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+
+
+
+  <div class="row my-5">
+     <div class="col-lg-4 ml-auto ">
+          <img src="https://www.smefinanceforum.org/sites/default/files/styles/720x486/public/post/images/Jay%20Singer%20-%20Mastercard%20-%20Strands-5.jpg?itok=Z0BD9WzN" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="lead">
+            
+            A good health indicator of a sector is its revenue and Profit/Loss. A loss making sector or where the profits are declining is often a red signal
+            This is a key in decision making process as to whether one should invest in a sector. Automation and AI can further change the job requirements and 
+            alignment</p>
+   
+
+        </div>
+       
+       
+      </div>
+
+<div class="row my-5" id="container2"></div>
+
+
+
+
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+      
+  
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Self-employment—New Business Assistance with NEIS</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p >
+            Individuals not in employment, education or training who are interested in running their own business may be eligible for New Business Assistance with NEIS.
+          </p>
+          <ul class="list-group">
+<li class="list-group-items">  Accredited small business training.</li>
+<li class="list-group-items">Personalised mentoring and support from a NEIS provider in the first year of the new business to help the individual put 
+their business idea into practice; and </li>
+<li class="list-group-items">NEIS Allowance for up to 39 weeks and NEIS Rental Assistance for up to 26 weeks (if eligible).</li>
+</ul>
+        </div>
+        <div class="col-lg-4 mr-auto">
+    <img src="https://skillsplus.com.au/wp-content/uploads/2019/06/shutterstock_275535209-1170x749.jpg" alt="" class="img-fluid">
+
+
+        </div>
+      </div>
+
+      <!-- About Section Button -->
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" href="https://jobsearch.gov.au/selfstart" target="_blank" >
+          <i class="fas fa-search mr-2"></i>
+          Find more information
+        </a>
+      </div>
+<div class="row my-5" id="container"></div>
+    </div>
+    
+  </section>
+
+  <!-- Contact Section -->
+  <section class="page-section" id="contact">
+    
+    <div class="container">
+
+
+<!--<h2 class='jumbotron'> Businesses that have received assistance from NMEI in this Sector</h2>-->
+
+<!--<div class="row " id="container4"></div>-->
+
+
+ 
+
+
+
+      <!-- Contact Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Innovation Precints for this sector</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+      
+      
+            <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p >
+            
+The Innovation Precinct is a place where world-class universities, ambitious startups, high-tech giants and the community collaborate to solve problems, socialise and spark ideas 
+that change our world. The Precinct will be underpinned by high quality physical and digital infrastructure.
+As such there is a lot of evidence that running a business in the vicinity of such a place is definitely a plus. Below is the list of such places where you 
+can start your business. These precints work in a related sector and will provide innumerable benefits for your business growth.
+
+          </p>
+          
+        </div>
+        <div class="col-lg-4 mr-auto">
+    <img src="https://res-3.cloudinary.com/the-university-of-melbourne/image/upload/s--bJstgj3r--/c_limit,f_auto,h_500,w_1000/v1539669187/events-uploads/event/image/11678/zng0h3vamelgnumfxr4x.jpg" alt="" class="img-fluid">
+
+
+        </div>
+      </div>
+       <div id="map" class="row " style="width:100%;height:30em;"></div>
+      
+      
+
+    
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <!--<div class="col-lg-4 mb-5 mb-lg-0">-->
+        <!--  <h4 class="text-uppercase mb-4">Location</h4>-->
+        <!--  <p class="lead mb-0">2215 John Daniel Drive-->
+        <!--    <br>Clark, MO 65243</p>-->
+        <!--</div>-->
+
+        <!-- Footer Social Icons -->
+        <!--<div class="col-lg-4 mb-5 mb-lg-0">-->
+        <!--  <h4 class="text-uppercase mb-4">Around the Web</h4>-->
+        <!--  <a class="btn btn-outline-light btn-social mx-1" href="#">-->
+        <!--    <i class="fab fa-fw fa-facebook-f"></i>-->
+        <!--  </a>-->
+        <!--  <a class="btn btn-outline-light btn-social mx-1" href="#">-->
+        <!--    <i class="fab fa-fw fa-twitter"></i>-->
+        <!--  </a>-->
+        <!--  <a class="btn btn-outline-light btn-social mx-1" href="#">-->
+        <!--    <i class="fab fa-fw fa-linkedin-in"></i>-->
+        <!--  </a>-->
+        <!--  <a class="btn btn-outline-light btn-social mx-1" href="#">-->
+        <!--    <i class="fab fa-fw fa-dribbble"></i>-->
+        <!--  </a>-->
+        <!--</div>-->
+
+        <!-- Footer About Text -->
+        <div class="col-sm-12">
+          <!--<h4 class="text-uppercase mb-4">About Freelancer</h4>-->
+          <p class="lead">Made with <span style="color: #e25555;">&#9829;</span> by SwitchCase for Govhack'19
+            <!--<a href="http://startbootstrap.com">Start Bootstrap</a>.-->
+            </h4>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <!--<section class="copyright py-4 text-center text-white">-->
+  <!--  <div class="container">-->
+  <!--    <small>Copyright &copy; Your Website 2019</small>-->
+  <!--  </div>-->
+  <!--</section>-->
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Portfolio Modal 1 -->
+ 
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <!--<script src="js/jqBootstrapValidation.js"></script>-->
+  <!--<script src="js/contact_me.js"></script>-->
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+<script    type="text/javascript" src="js/theme.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY3RNuFX1DU6iMTPeQMbpC9Xx2wA74pgs" async defer></script>
+
+</body>
+
+</html>

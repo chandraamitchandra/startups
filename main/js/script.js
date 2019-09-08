@@ -70,7 +70,7 @@ $(document).ready(function() {
        
         
        // drawChart4();
-       //showMap(totalHubData);
+      //showMap(totalHubData);
        
 
     });
@@ -199,7 +199,7 @@ function drawChart1() {
         },
         
         title: {
-            text: 'Total Profit/loss for last 7 years in this Sector',
+            text: 'Total Profit/loss for last 5 years in this Sector',
             align: 'center'
         },
         subtitle: {
@@ -319,7 +319,7 @@ function drawChart1() {
         },
         
         title: {
-            text: 'Total employment in this sector in last few years',
+            text: 'Number of jobs in this sector in last few years',
             align: 'center'
         },
         subtitle: {
@@ -454,8 +454,8 @@ var map = new google.maps.Map(document.getElementById("map"), mapOptions);
              
             
             
-           content = '<div class="card"> <div class="card-header" style="background-color:#002664; color:white;"><h3>'+value.name+
-           '<h3></div><div class="card-body" style="background-color:#0a7cb9;color:white;"><p style="text-transform:uppercase;">precinct: '+value.Precinct+
+           content = '<div class="card"> <div class="card-header" style="background-color:#2c3e50; color:white;"><h3>'+value.name+
+           '<h3></div><div class="card-body" style="background-color:#1abc9c;color:white;"><p style="text-transform:uppercase;">precinct: '+value.Precinct+
            '</p> '+ value.Partners+'</div></div>';
            
             
